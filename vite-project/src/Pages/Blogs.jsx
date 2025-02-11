@@ -12,7 +12,7 @@ export default function Blogs() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/blogs");
+        const response = await fetch("https://dhruvblogs.onrender.com/api/blogs");
         if (response.ok) {
           const data = await response.json();
           setBlogs(data);
@@ -30,7 +30,7 @@ export default function Blogs() {
   // Handle upvote functionality
   const handleUpvote = async (id) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/upvote/${id}`, {
+      const response = await fetch(`https://dhruvblogs.onrender.com/upvote/${id}`, {
         method: "PATCH",
       });
 
@@ -49,7 +49,6 @@ export default function Blogs() {
     }
   };
 
-  // Define category styles and icons
   const categoryStyles = {
     "Tech related": { color: "#39ff14", icon: <FaLaptopCode /> },
     "General Knowledge": { color: "#ffcc00", icon: <FaBook /> },

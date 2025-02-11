@@ -49,7 +49,7 @@ export default function Post() {
     };
 
     try {
-        const response = await fetch("http://localhost:8000/api/post", { 
+        const response = await fetch("https://dhruvblogs.onrender.com/api/post", { 
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newPost),
