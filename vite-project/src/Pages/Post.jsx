@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import JoditEditor from "jodit-react";
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
+import Navbar from "../Components/navbar";
+import Footer from "../Components/footer";
 
 export default function Post() {
   const navigate = useNavigate();
