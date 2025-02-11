@@ -3,7 +3,8 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import About from '../components/About' 
-function Home() {
+
+export default function Home() {
   return (
     <div>
       <Navbar/>
@@ -15,4 +16,3 @@ function Home() {
   )
 }
 
-export default Home

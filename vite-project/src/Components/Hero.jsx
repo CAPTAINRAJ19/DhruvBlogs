@@ -1,7 +1,10 @@
 import { FaLinkedin, FaGithub, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import season from "../assets/images/season.jpg"
+import { useNavigate , useLocation } from 'react-router-dom'
 
 export default function Hero() {
+  const navigate = useNavigate();
+
   return (
     <section
     className="relative h-screen flex items-center justify-center bg-black text-white"
@@ -29,7 +32,7 @@ export default function Hero() {
       <div className="text-center w-60 md:w-auto">
         <h1 style={{fontFamily:"orbitron"}} className="text-5xl font-bold text-[#fcfcfc] mb-24">Welcome to DhruvBlogs</h1>
         <p className="mt-4 text-lg text-gray-300">Sharing insights, thoughts, and experiences.</p>
-        <button className="mt-6 px-6 py-3 text-lg font-semibold bg-[#39ff14] text-black rounded-lg hover:bg-[#32cc12] transition-all duration-300">
+        <button onClick={()=>{navigate("/blogs")}} className="mt-6 px-6 py-3 text-lg font-semibold bg-[#39ff14] text-black rounded-lg hover:bg-[#32cc12] transition-all duration-300">
           Explore Now
         </button>
       </div>
