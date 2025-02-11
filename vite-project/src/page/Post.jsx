@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import JoditEditor from "jodit-react";
-import Navbar from "../Components/navbar";
-import Footer from "../Components/footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Post() {
   const navigate = useNavigate();
@@ -17,19 +17,16 @@ export default function Post() {
   });
 
   const [hashtagInput, setHashtagInput] = useState("");
-  const editorContent = useRef(""); // ✅ Store content in a ref to prevent re-renders
+  const editorContent = useRef(""); 
 
-  // Handle input change
   const handleChange = (e) => {
     setPost({ ...post, [e.target.name]: e.target.value });
   };
 
-  // Save editor content only when the user finishes typing
   const handleEditorBlur = () => {
     setPost({ ...post, content: editorContent.current });
   };
 
-  // Add hashtag
   const addHashtag = () => {
     if (hashtagInput.trim() !== "") {
       setPost({ ...post, hashtags: [...post.hashtags, hashtagInput.trim()] });
@@ -37,13 +34,11 @@ export default function Post() {
     }
   };
 
-  // Remove hashtag
   const removeHashtag = (index) => {
     const updatedHashtags = post.hashtags.filter((_, i) => i !== index);
     setPost({ ...post, hashtags: updatedHashtags });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -54,7 +49,7 @@ export default function Post() {
     };
 
     try {
-        const response = await fetch("http://localhost:8000/api/post", {  // ✅ Updated URL
+        const response = await fetch("http://localhost:8000/api/post", { 
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newPost),
@@ -80,7 +75,6 @@ export default function Post() {
             Create a New Post
           </h2>
 
-          {/* Author Name */}
           <input
             type="text"
             name="author"
@@ -90,7 +84,6 @@ export default function Post() {
             className="w-full p-3 rounded-lg bg-gray-800 text-white mb-4 border border-gray-700 focus:border-[#39ff14] focus:ring-[#39ff14] focus:outline-none"
           />
 
-          {/* Language Input */}
           <input
             type="text"
             name="language"
@@ -100,7 +93,6 @@ export default function Post() {
             className="w-full p-3 rounded-lg bg-gray-800 text-white mb-4 border border-gray-700 focus:border-[#39ff14] focus:ring-[#39ff14] focus:outline-none"
           />
 
-          {/* Category Dropdown */}
           <select
             name="category"
             value={post.category}
@@ -127,7 +119,6 @@ export default function Post() {
             }}
           />
 
-          {/* Hashtag Input */}
           <div className="mt-4">
             <h3 className="text-lg text-[#39ff14] font-semibold mb-2">
               Hashtags
@@ -149,7 +140,6 @@ export default function Post() {
               </button>
             </div>
 
-            {/* Display Hashtags */}
             <div className="flex flex-wrap mt-3">
               {post.hashtags.map((tag, index) => (
                 <span
@@ -168,7 +158,6 @@ export default function Post() {
             </div>
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             onClick={handleSubmit}

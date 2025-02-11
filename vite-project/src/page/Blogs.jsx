@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { FaLaptopCode, FaBook, FaPenFancy, FaLightbulb, FaFire, FaArrowUp } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../Components/navbar";
-import Footer from "../Components/footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Blogs() {
   const [blogs, setBlogs] = useState([]);

@@ -1,8 +1,8 @@
 import React from 'react'
-import Navbar from '../Components/navbar'
-import Hero from '../Components/Hero'
-import Footer from '../Components/footer'
-import About from '../Components/About' 
+import Navbar from '../components/Navbar'
+import Hero from '../components/Hero'
+import Footer from '../components/Footer'
+import About from '../components/About' 
 
 function Home() {
   return (
